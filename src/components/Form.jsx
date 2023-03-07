@@ -72,11 +72,12 @@ class Form extends Component {
           data-testid="rare-input"
           id="cardRare"
           name="cardRare"
+          value={ cardName }
           onChange={ onInputChange }
         >
-          <option value={ cardRare }>normal</option>
-          <option value={ cardName }>raro</option>
-          <option value={ cardRare }>muito raro</option>
+          <option>normal</option>
+          <option>raro</option>
+          <option>muito raro</option>
         </select>
         <input
           type="checkbox"
