@@ -35,6 +35,7 @@ class Form extends Component {
           name="cardDescription"
           value={ cardDescription }
           onChange={ onInputChange }
+          placeholder="insira descrição"
         />
         <input
           type="number"
