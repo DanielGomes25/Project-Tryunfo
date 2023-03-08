@@ -114,6 +114,21 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        {
+          deck.map((dec) => (
+            <Card
+              key={ dec.cardName }
+              cardName={ dec.cardName }
+              cardDescription={ dec.cardDescription }
+              cardAttr1={ dec.cardAttr1 }
+              cardAttr2={ dec.cardAttr2 }
+              cardAttr3={ dec.cardAttr3 }
+              cardImage={ dec.cardImage }
+              cardRare={ dec.cardRare }
+              cardTrunfo={ dec.cardTrunfo }
+            />
+          ))
+        }
       </>
     );
   }
