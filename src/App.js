@@ -14,7 +14,8 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      hasTrunfo: false,
+      // hasTrunfo: false,
+      deck: [],
     };
   }
 
@@ -28,7 +29,28 @@ class App extends React.Component {
 
   onSaveButtonClick = (event) => {
     event.preventDefault();
-    this.setState({
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    } = this.state;
+    const cardAd = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
+    this.setState((currentState) => ({
+      deck: [cardAd, ...currentState.deck],
       cardName: '',
       cardDescription: '',
       cardAttr1: '0',
@@ -36,7 +58,8 @@ class App extends React.Component {
       cardAttr3: '0',
       cardImage: '',
       cardRare: '',
-    });
+      cardTrunfo: false,
+    }));
   };
 
   render() {
@@ -48,7 +71,8 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
+      // hasTrunfo,
+      deck,
     } = this.state;
     const ZERO = 0;
     const MAXVALUE = 90;
@@ -62,6 +86,7 @@ class App extends React.Component {
       && Number(cardAttr1) >= ZERO
       && Number(cardAttr2) >= ZERO
       && Number(cardAttr3) >= ZERO;
+    const hasTrunfo = deck.some((decks) => decks.cardTrunfo);
 
     return (
       <>
